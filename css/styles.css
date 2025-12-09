@@ -1,0 +1,235 @@
+/* 
+   St. Lawrence County Tourism Landing Page - STARTER CSS
+   This starter file uses an <img> tag for the hero section
+   
+   YOUR TASK: Convert to use CSS background-image property instead!
+*/
+
+/* ===== RESET & BASE STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* ===== NAVIGATION ===== */
+header {
+    background-color: #1a472a;
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #81c784;
+}
+
+/* ===== HERO SECTION - USING <img> TAG ===== */
+/* TODO: This section currently uses an <img> tag which is NOT ideal for hero sections */
+/* TODO: You will convert this to use CSS background-image property */
+
+.hero {
+    position: relative;
+    height: 100vh;
+    margin-top: 60px; /* Account for fixed header */
+    overflow: hidden;
+}
+
+/* Style for the <img> tag hero - THIS IS THE OLD METHOD */
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* TODO: Step 1 - Comment out the .hero-image rule above */
+/* TODO: Step 2 - Add background-image properties to .hero instead */
+/* TODO: Step 2a - Add: background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&h=900&fit=crop'); */
+/* TODO: Step 2b - Add: background-size: cover; */
+/* TODO: Step 2c - Add: background-position: center; */
+/* TODO: Step 2d - Add: background-repeat: no-repeat; */
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 10;
+    width: 90%;
+    max-width: 800px;
+}
+
+/* Add semi-transparent overlay for better text readability */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 5;
+}
+
+.hero-content h1 {
+    color: white;
+    z-index: 10;
+}
+
+
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: #2e7d32;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #1b5e20;
+}
+
+/* ===== CONTENT SECTIONS ===== */
+.content-section {
+    padding: 4rem 2rem;
+    background-color: #f5f5f5;
+}
+
+.content-section:nth-child(even) {
+    background-color: white;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.content-section h2 {
+    font-size: 2.5rem;
+    color: #1a472a;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.content-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+/* ===== PARALLAX SECTION BREAKS ===== */
+/* TODO: Step 3 & 4 - Add background images and parallax effects here */
+
+.parallax-break {
+    min-height: 400px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.parallax-1 {
+    background-image: url('https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=1600&h=900&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.parallax-2 {
+    background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1600&h=900&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.parallax-break::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background-color: #1a472a;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+footer p {
+    margin: 0.5rem 0;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    .nav-links {
+        gap: 1rem;
+    }
+    
+    .content-section h2 {
+        font-size: 2rem;
+    }
+    
+    /* Disable parallax on mobile for better performance */
+    .parallax-1,
+    .parallax-2 {
+        background-attachment: scroll;
+    }
+}
+
